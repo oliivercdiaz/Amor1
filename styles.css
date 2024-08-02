@@ -1,0 +1,251 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: #000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    text-align: center;
+    background: rgba(255, 192, 203, 0.9); /* Rosado claro translúcido */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el título */
+h1 {
+    font-size: 2.5em;
+    color: #ff69b4; /* Rosa fuerte */
+    margin-bottom: 20px;
+}
+
+/* Estilos para los párrafos */
+p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Estilos para la galería de imágenes */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre las imágenes */
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el mensaje */
+.message {
+    margin-top: 20px;
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #ff69b4; /* Rosa fuerte */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 50px; /* Botón redondo */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff85b3; /* Rosa más claro en hover */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+
+button:focus {
+    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5); /* Enfoque visible */
+}
+
+/* Estilos para el popup */
+.hidden {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+    z-index: 1000;
+    overflow: auto; /* Permite el scroll si el contenido es más grande que la ventana */
+}
+
+/* Estilos para el contenido del popup */
+.popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 192, 203, 0.95); /* Fondo rosado translúcido */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 30%;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Estilos para el contenido del popup (media) */
+.popupMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#video {
+    flex: 1;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Estilos para el texto de superposición */
+.overlayText {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 100; /* Asegura que esté por encima del resto del contenido */
+}
+
+/* Estilos para el mensaje en el popup */
+.popupMessage {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #a64dff; /* Lila fuerte */
+    font-family: 'Arial', sans-serif; /* Tipografía legible */
+    text-align: center; /* Centra el texto */
+}
+
+/* Añadir un fondo y estilo a los párrafos */
+.popupMessage p {
+    margin: 10px 0; /* Espacio entre párrafos */
+}
+/* Estilos para la trivia */
+#trivia {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#trivia h2 {
+    font-size: 1.5em;
+    color: #a64dff;
+    margin-bottom: 20px;
+}
+
+#trivia .question {
+    margin-bottom: 20px;
+}
+
+#trivia button {
+    background-color: #a64dff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#trivia button:hover {
+    background-color: #9333ea;
+}
+
+#trivia p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #a64dff;
+}
+
+/* Estilo para las preguntas ocultas */
+.hidden {
+    display: none;
+}
+
+/* Efecto de sacudida para la pantalla */
+.shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+/* Estilo para el mensaje final */
+#final-message {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#final-message p {
+    font-size: 1.5em;
+    color: #a64dff; /* Lila fuerte */
+    font-family: 'Arial', sans-serif; /* Tipografía legible */
+}
+
+/* Ocultar el mensaje final inicialmente */
+.hidden {
+    display: none;
+}
+
+/* Estilo de sacudida */
+.shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}

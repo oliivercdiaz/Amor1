@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hola, Mi Amor</h1>
+        <p>Te hice esta página para recordarte lo mucho que te amo.</p>
+
+        <div class="gallery">
+            <img src="image1.png" alt="Recuerdo 1">
+            <img src="image2.png" alt="Recuerdo 2">
+            <img src="image3.png" alt="Recuerdo 3">
+        </div>
+
+        <div class="message">
+            <p>Eres la persona más maravillosa que conozco y cada día contigo es un regalo. Gracias por estar siempre a mi lado. Te amo más de lo que las palabras pueden expresar.</p>
+        </div>
+
+        <button onclick="openPopup()">Haz clic aquí para una sorpresa</button>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup hidden">
+        <div class="popupContent">
+            <span class="close" onclick="closePopup()">&times;</span>
+
+            <div class="popupMessage">
+                <p>Feliz día de la novia, pero con retraso 🎉</p>
+                <p>💜 💚 🩷 ¡Te amo mucho! 💜 💚 🩷</p>
+            </div>
+
+            <div class="popupMedia">
+                <iframe id="video" src="https://www.youtube.com/embed/XKo13KisXZE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display: none;"></iframe>
+            </div>
+
+            <!-- Trivia -->
+            <div id="trivia">
+                <h2 id="trivia-title">¿Cuánto sabes sobre mí?</h2>
+                <div id="question-container">
+                    <!-- Preguntas y respuestas -->
+                    <div id="question1" class="question">
+                        <p>¿Dónde nos conocimos?</p>
+                        <button onclick="checkAnswer('question1', true)">Tinder</button>
+                        <button onclick="checkAnswer('question1', false)">En el tren</button>
+                    </div>
+
+                    <div id="question2" class="question hidden">
+                        <p>¿Qué género musical escucho?</p>
+                        <button onclick="checkAnswer('question2', true)">Escucho de todo</button>
+                        <button onclick="checkAnswer('question2', false)">Rock</button>
+                    </div>
+
+                    <div id="question3" class="question hidden">
+                        <p>¿Cómo se llama mi mascota?</p>
+                        <button onclick="checkAnswer('question3', true)">Diana</button>
+                        <button onclick="checkAnswer('question3', false)">Venus</button>
+                    </div>
+
+                    <div id="question4" class="question hidden">
+                        <p>¿Qué deporte practiqué?</p>
+                        <button onclick="checkAnswer('question4', false)">Fútbol</button>
+                        <button onclick="checkAnswer('question4', true)">Básquet</button>
+                    </div>
+
+                    <div id="question5" class="question hidden">
+                        <p>¿Casa o piso?</p>
+                        <button onclick="checkAnswer('question5', true)">Casa</button>
+                        <button onclick="checkAnswer('question5', false)">Piso</button>
+                    </div>
+
+                    <div id="question6" class="question hidden">
+                        <p>¿A qué edad me gustaría tener los hijos?</p>
+                        <button onclick="checkAnswer('question6', true)">30</button>
+                        <button onclick="checkAnswer('question6', false)">35</button>
+                    </div>
+
+                    <div id="question7" class="question hidden">
+                        <p>¿Dónde nos vimos por primera vez?</p>
+                        <button onclick="checkAnswer('question7', true)">Sant Celoni</button>
+                        <button onclick="checkAnswer('question7', false)">Barcelona</button>
+                    </div>
+
+                    <div id="question8" class="question hidden">
+                        <p>¿Cuál es mi color favorito?</p>
+                        <button onclick="checkAnswer('question8', false)">Azul</button>
+                        <button onclick="checkAnswer('question8', true)">Verde</button>
+                    </div>
+
+                    <div id="question9" class="question hidden">
+                        <p>¿Qué deporte disfruto ver más?</p>
+                        <button onclick="checkAnswer('question9', true)">Fútbol</button>
+                        <button onclick="checkAnswer('question9', false)">Baloncesto</button>
+                    </div>
+
+                    <div id="question10" class="question hidden">
+                        <p>¿Cuál es mi estación del año preferida?</p>
+                        <button onclick="checkAnswer('question10', false)">Primavera</button>
+                        <button onclick="checkAnswer('question10', true)">Invierno</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensaje final -->
+           <div id="final-message" class="hidden">
+    <p id="final-text"></p>
+    <button id="love-button" class="hidden" onclick="redirect()">Clica aquí si me amas</button>
+</div>
+
+<script>
+function redirect() {
+  window.location.href = "index2.html";
+}
+</script>
+        </div>
+    </div>
+
+<script>
+    let incorrectAnswers = 0; // Contador de respuestas incorrectas
+
+    // Función para abrir el popup
+    function openPopup() {
+        document.getElementById('popup').classList.remove('hidden');
+        playVideo(); // Inicia el video cuando se abre el popup
+    }
+
+    // Función para cerrar el popup
+    function closePopup() {
+        document.getElementById('popup').classList.add('hidden');
+        // Detener el video cuando se cierra el popup
+        const iframe = document.getElementById('video');
+        iframe.style.display = 'none';
+        iframe.src = ''; // Detiene el video
+        
+        // Resetear el estado de la trivia
+        resetTrivia();
+    }
+
+    // Función para reproducir el video
+    function playVideo() {
+        const iframe = document.getElementById('video');
+        iframe.style.display = 'block';
+        iframe.src = 'https://www.youtube.com/embed/XKo13KisXZE?autoplay=1'; // Inicia el video con autoplay
+    }
+
+    // Efecto de escritura en el mensaje
+    const message = document.querySelector('.message p');
+    const text = message.textContent;
+    message.textContent = ''; // Limpia el contenido del mensaje
+
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            message.textContent += text.charAt(i); // Añade un carácter
+            i++;
+            setTimeout(type, 100); // Llama a la función de nuevo después de 100ms
+        }
+    }
+
+    type(); // Inicia el efecto de escritura
+
+    // Función para manejar la respuesta de la trivia
+    function checkAnswer(questionId, isCorrect) {
+        const currentQuestion = document.getElementById(questionId);
+        if (isCorrect) {
+            currentQuestion.classList.add('hidden');
+            const nextQuestion = currentQuestion.nextElementSibling;
+            if (nextQuestion) {
+                nextQuestion.classList.remove('hidden');
+            } else {
+                showFinalMessage();
+            }
+        } else {
+            incorrectAnswers++;
+            shakeScreen();
+        }
+    }
+
+    // Función para mostrar el mensaje final
+    function showFinalMessage() {
+        const triviaTitle = document.getElementById('trivia-title');
+        triviaTitle.classList.add('hidden');
+        document.getElementById('trivia').classList.add('hidden');
+        
+        const finalMessage = document.getElementById('final-message');
+        const finalText = document.getElementById('final-text');
+        const loveButton = document.getElementById('love-button');
+        
+        if (incorrectAnswers > 0) {
+            finalText.textContent = `¿Qué no me amas? 😢Estoy llorando. Has fallado ${incorrectAnswers} ${incorrectAnswers === 1 ? 'pregunta' : 'preguntas'}.`;
+        } else {
+            finalText.textContent = `¡Ostras! Me amas mucho 😍. Has fallado ${incorrectAnswers} ${incorrectAnswers === 1 ? 'pregunta' : 'preguntas'}.`;
+        }
+        
+        finalMessage.classList.remove('hidden');
+        loveButton.classList.remove('hidden');
+    }
+
+   
+    // Función para sacudir la pantalla en caso de respuesta incorrecta
+    function shakeScreen() {
+        document.body.classList.add('shake');
+        setTimeout(() => document.body.classList.remove('shake'), 500);
+    }
+
+    // Función para resetear el estado de la trivia
+    function resetTrivia() {
+        // Reiniciar el contador de respuestas incorrectas
+        incorrectAnswers = 0;
+
+        // Mostrar la primera pregunta
+        const questions = document.querySelectorAll('#question-container .question');
+        questions.forEach(question => {
+            question.classList.add('hidden');
+        });
+        document.getElementById('question1').classList.remove('hidden');
+
+        // Mostrar el título de la trivia
+        document.getElementById('trivia-title').classList.remove('hidden');
+        
+        // Ocultar el mensaje final
+        document.getElementById('final-message').classList.add('hidden');
+        
+        // Ocultar el botón final
+        document.getElementById('love-button').classList.add('hidden');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Interactiva: Oliver y Venus</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+<!-- Reproductor de audio -->
+    <audio id="background-music" src="musica.mp3" autoplay loop></audio>
+    
+    <!-- Botón para reproducir la música -->
+    <button id="play-button">???</button>	
+	<div class="container">
+        <h1>La Historia de Oliver y Venus</h1>
+        <p id="story">Oliver y Venus se conocieron en Tinder. Después de intercambiar algunos mensajes, ambos sintieron una conexión especial y decidieron conocerse en persona.</p>
+
+        <div id="choices">
+            <button onclick="choice1()">Oliver propone una cita romántica</button>
+            <button onclick="choice2()">Venus sugiere seguir chateando antes de una cita</button>
+        </div>
+
+        <div id="step2" style="display: none;">
+            <p>Oliver propone una cena en un restaurante elegante. Venus está emocionada pero también algo nerviosa.</p>
+            <button onclick="choice3()">Venus acepta y se prepara para la cena</button>
+            <button onclick="choice4()">Venus sugiere hacer algo más informal antes de la cena</button>
+        </div>
+
+        <div id="step3" style="display: none;">
+            <p>Venus acepta la propuesta de Oliver y ambos disfrutan de una cena encantadora. Sin embargo, después de la cena, surge una conversación importante.</p>
+            <button onclick="choice5()">Oliver le pregunta sobre sus planes a futuro</button>
+            <button onclick="choice6()">Venus menciona que ha tenido malas experiencias en el pasado</button>
+        </div>
+
+        <div id="step4" style="display: none;">
+            <p>Venus sugiere hacer algo más informal, como un paseo en el parque. Oliver acepta con gusto y ambos disfrutan de una agradable tarde.</p>
+            <button onclick="choice7()">Oliver se siente más cercano a Venus y decide expresar sus sentimientos</button>
+            <button onclick="choice8()">Oliver sigue disfrutando del momento y mantiene sus sentimientos para sí mismo</button>
+        </div>
+
+        <div id="step5" style="display: none;">
+            <p>Después de la cena, Oliver y Venus hablan sobre sus expectativas y futuros. Venus parece abierta y entusiasta sobre la posibilidad de una relación seria.</p>
+            <button onclick="choice9()">Oliver propone planear un viaje juntos</button>
+            <button onclick="choice10()">Venus sugiere tomarse un tiempo para conocerse mejor antes de tomar decisiones</button>
+        </div>
+
+        <div id="step6" style="display: none;">
+            <p>Venus menciona que ha tenido malas experiencias en el pasado. Oliver escucha atentamente y ofrece su apoyo.</p>
+            <button onclick="choice11()">Oliver le propone asistir a una terapia de pareja para superar los traumas</button>
+            <button onclick="choice12()">Oliver respeta sus sentimientos y sugiere continuar conociéndose sin presiones</button>
+        </div>
+
+        <div id="step7" style="display: none;">
+            <p>Oliver decide expresar sus sentimientos a Venus después de una tarde maravillosa en el parque. Venus responde con sinceridad.</p>
+            <button onclick="choice13()">Venus acepta sus sentimientos y propone una relación seria</button>
+            <button onclick="choice14()">Venus dice que no está lista para una relación seria y prefiere ser solo amigos</button>
+        </div>
+
+        <div id="step8" style="display: none;">
+            <p>Oliver elige disfrutar del momento y mantiene sus sentimientos para sí mismo. Venus no percibe nada extraño y la relación avanza lentamente.</p>
+            <button onclick="choice15()">Oliver sugiere hacer más actividades juntos</button>
+            <button onclick="choice16()">Oliver decide mantener el ritmo actual y ver cómo evoluciona la relación</button>
+        </div>
+
+        <div id="step9" style="display: none;">
+            <p>Oliver propone planear un viaje, lo cual entusiasma a Venus. Ambos empiezan a planificar y se sienten más conectados.</p>
+            <button onclick="choice17()">Venus sugiere una fecha concreta para el viaje</button>
+            <button onclick="choice18()">Oliver propone planificar el viaje en función de su disponibilidad</button>
+        </div>
+
+        <div id="step10" style="display: none;">
+            <p>Venus sugiere tomarse un tiempo para conocerse mejor. Oliver acepta y ambos continúan conociéndose antes de tomar decisiones importantes.</p>
+            <button onclick="choice19()">Oliver sugiere tener encuentros regulares para fortalecer la relación</button>
+            <button onclick="choice20()">Venus propone dejar el tiempo fluir y ver cómo se desarrollan las cosas</button>
+        </div>
+
+        <div id="step11" style="display: none;">
+            <p>Oliver sugiere asistir a terapia de pareja. Venus se siente conmovida por su apoyo, pero también preocupada por las implicaciones.</p>
+            <button onclick="choice21()">Venus acepta asistir a la terapia</button>
+            <button onclick="choice22()">Venus prefiere seguir conociéndose sin intervención profesional</button>
+        </div>
+
+        <div id="step12" style="display: none;">
+            <p>Oliver respeta los sentimientos de Venus y continúa conociéndola sin presiones. Ambos profundizan su conexión emocional.</p>
+            <button onclick="choice23()">Oliver le propone un nuevo plan de vida juntos</button>
+            <button onclick="choice24()">Venus sugiere mantener el ritmo actual y disfrutar del momento</button>
+        </div>
+
+        <div id="step13" style="display: none;">
+            <p>Venus acepta los sentimientos de Oliver y propone una relación seria. Ambos están emocionados por lo que les espera.</p>
+            <button onclick="choice25()">Oliver y Venus planean su futuro juntos</button>
+            <button onclick="choice26()">Oliver y Venus deciden disfrutar el presente y planificar a corto plazo</button>
+        </div>
+
+        <div id="step14" style="display: none;">
+            <p>Venus dice que no está lista para una relación seria y prefiere ser solo amigos. Oliver acepta con tristeza y se centra en mantener una buena amistad.</p>
+            <button onclick="choice27()">Oliver se enfoca en fortalecer la amistad</button>
+            <button onclick="choice28()">Oliver decide distanciarse para superar sus sentimientos</button>
+        </div>
+
+        <div id="step15" style="display: none;">
+            <p>Oliver sugiere hacer más actividades juntos. Venus está de acuerdo y ambos continúan disfrutando de su tiempo juntos.</p>
+            <button onclick="choice29()">Oliver propone un proyecto o hobby compartido</button>
+            <button onclick="choice30()">Venus sugiere mantener actividades casuales</button>
+        </div>
+
+        <div id="step16" style="display: none;">
+            <p>Oliver decide mantener el ritmo actual. La relación sigue desarrollándose lentamente, sin grandes cambios.</p>
+            <button onclick="choice31()">Oliver y Venus exploran nuevas actividades juntos</button>
+            <button onclick="choice32()">Venus sugiere un enfoque más relajado y ver cómo evoluciona la relación</button>
+        </div>
+
+        <div id="step17" style="display: none;">
+            <p>Venus sugiere una fecha concreta para el viaje. Oliver está emocionado y ambos comienzan a planificar con entusiasmo.</p>
+            <button onclick="choice33()">Oliver planea detalles específicos del viaje</button>
+            <button onclick="choice34()">Venus sugiere dejar algunos detalles abiertos y ser espontáneos</button>
+        </div>
+
+        <div id="step18" style="display: none;">
+            <p>Oliver propone planificar el viaje según su disponibilidad. Venus está de acuerdo y ambos coordinan sus agendas.</p>
+            <button onclick="choice35()">Oliver y Venus deciden coordinar todos los detalles del viaje</button>
+            <button onclick="choice36()">Venus sugiere hacer planes generales y decidir los detalles más adelante</button>
+        </div>
+
+        <div id="step19" style="display: none;">
+            <p>Oliver sugiere encuentros regulares. Venus acepta y ambos se comprometen a fortalecer su relación con reuniones periódicas.</p>
+            <button onclick="choice37()">Oliver y Venus establecen un calendario de encuentros</button>
+            <button onclick="choice38()">Venus sugiere mantener flexibilidad en el calendario</button>
+        </div>
+
+        <div id="step20" style="display: none;">
+            <p>Venus propone dejar el tiempo fluir. Oliver acepta y ambos continúan disfrutando de su relación sin presiones.</p>
+            <button onclick="choice39()">Oliver y Venus disfrutan de su tiempo juntos y exploran nuevas actividades</button>
+            <button onclick="choice40()">Venus sugiere mantener la relación relajada y enfocarse en el presente</button>
+        </div>
+
+        <div id="step21" style="display: none;">
+            <p>Venus acepta asistir a la terapia. Oliver y Venus comienzan a trabajar juntos para superar los problemas del pasado.</p>
+            <button onclick="choice41()">Oliver y Venus encuentran un terapeuta y comienzan las sesiones</button>
+            <button onclick="choice42()">Venus y Oliver exploran otras formas de apoyo emocional</button>
+        </div>
+
+        <div id="step22" style="display: none;">
+            <p>Venus prefiere seguir conociéndose sin intervención profesional. Oliver respeta su decisión y ambos continúan su relación.</p>
+            <button onclick="choice43()">Oliver y Venus se enfocan en fortalecer su relación mediante actividades compartidas</button>
+            <button onclick="choice44()">Venus sugiere mantener la relación relajada y centrarse en disfrutar el presente</button>
+        </div>
+
+        <div id="step23" style="display: none;">
+            <p>Oliver le propone un nuevo plan de vida. Venus está abierta a discutir el futuro y explorar nuevas posibilidades juntos.</p>
+            <button onclick="choice45()">Oliver y Venus planifican metas a largo plazo</button>
+            <button onclick="choice46()">Venus propone discutir los planes a medida que avanzan en su relación</button>
+        </div>
+
+        <div id="step24" style="display: none;">
+            <p>Venus sugiere mantener el ritmo actual. Oliver acepta y ambos disfrutan de su tiempo juntos sin presiones.</p>
+            <button onclick="choice47()">Oliver y Venus exploran nuevas actividades juntos</button>
+            <button onclick="choice48()">Venus sugiere disfrutar del presente sin pensar en el futuro</button>
+        </div>
+
+        <div id="step25" style="display: none;">
+            <p>Oliver y Venus planean su futuro juntos. Ambos están emocionados por lo que les espera y comienzan a hacer planes concretos.</p>
+            <button onclick="choice49()">Oliver y Venus establecen metas a largo plazo y comienzan a trabajar en ellas</button>
+            <button onclick="choice50()">Venus propone planificar a corto plazo y disfrutar del presente</button>
+        </div>
+
+        <div id="step26" style="display: none;">
+            <p>Oliver y Venus deciden disfrutar del presente. La relación avanza con un enfoque en el aquí y el ahora.</p>
+            <button onclick="choice51()">Oliver y Venus disfrutan de actividades juntos y fortalecen su vínculo</button>
+            <button onclick="choice52()">Venus sugiere mantener la relación en un nivel casual y relajado</button>
+        </div>
+
+        <!-- Finales tristes y más dramáticos -->
+        <div id="ending1" style="display: none;">
+            <p>La relación entre Oliver y Venus se vuelve complicada y terminan separándose. Ambos quedan con el corazón roto y reflexionan sobre lo que pudo haber sido.</p>
+        </div>
+        <div id="ending2" style="display: none;">
+            <p>A pesar de sus esfuerzos, Oliver y Venus encuentran que sus diferencias son demasiado grandes y deciden tomar caminos separados.</p>
+        </div>
+        <div id="ending3" style="display: none;">
+            <p>La relación entre Oliver y Venus se enfrió con el tiempo, y ambos se dan cuenta de que no estaban destinados a estar juntos.</p>
+        </div>
+        <div id="ending4" style="display: none;">
+            <p>Oliver y Venus descubren que sus expectativas no coinciden, lo que lleva a una ruptura dolorosa.</p>
+        </div>
+        <div id="ending5" style="display: none;">
+            <p>Después de un tiempo, la relación entre Oliver y Venus se vuelve insostenible, y deciden separarse con tristeza.</p>
+        </div>
+        <div id="ending6" style="display: none;">
+            <p>A pesar de sus esfuerzos, Oliver y Venus no logran superar sus problemas y deciden poner fin a su relación.</p>
+        </div>
+        <div id="ending7" style="display: none;">
+            <p>Oliver y Venus finalmente encuentran la felicidad juntos, superando los desafíos y construyendo una vida compartida llena de amor.</p>
+        </div>
+        <div id="ending8" style="display: none;">
+            <p>La relación entre Oliver y Venus florece, y ambos encuentran en el otro a su compañero perfecto.</p>
+        </div>
+        <div id="ending9" style="display: none;">
+            <p>Oliver y Venus construyen una relación sólida y duradera, aprendiendo y creciendo juntos en el proceso.</p>
+        </div>
+        <div id="ending10" style="display: none;">
+            <p>La conexión entre Oliver y Venus se fortalece con el tiempo, y ambos encuentran un amor verdadero y duradero.</p>
+        </div>
+        <div id="ending11" style="display: none;">
+            <p>Oliver y Venus encuentran la felicidad en su relación, creando un futuro prometedor y lleno de amor.</p>
+        </div>
+        <div id="ending12" style="display: none;">
+            <p>Oliver y Venus se enfrentan a desafíos, pero su amor y compromiso los llevan a superar cualquier obstáculo.</p>
+        </div>
+        <div id="ending13" style="display: none;">
+            <p>A pesar de los altibajos, Oliver y Venus logran construir una relación sólida y exitosa.</p>
+        </div>
+        <div id="ending14" style="display: none;">
+            <p>La relación entre Oliver y Venus enfrenta obstáculos, pero ambos encuentran la manera de superarlos y crecer juntos.</p>
+        </div>
+        <div id="ending15" style="display: none;">
+            <p>Oliver y Venus disfrutan de una relación llena de aventuras y nuevos comienzos.</p>
+        </div>
+        <div id="ending16" style="display: none;">
+            <p>Oliver y Venus encuentran el equilibrio perfecto en su relación, construyendo una vida juntos llena de amor.</p>
+        </div>
+        <div id="ending17" style="display: none;">
+            <p>Oliver y Venus logran superar sus diferencias y construir un futuro juntos lleno de amor y comprensión.</p>
+        </div>
+        <div id="ending18" style="display: none;">
+            <p>La relación entre Oliver y Venus se convierte en una historia de éxito, superando todos los desafíos.</p>
+        </div>
+        <div id="ending19" style="display: none;">
+            <p>Oliver y Venus encuentran la felicidad y el éxito en su relación, creciendo juntos.</p>
+        </div>
+        <div id="ending20" style="display: none;">
+            <p>Oliver y Venus construyen una vida juntos, llena de amor y alegría.</p>
+        </div>
+        <div id="ending21" style="display: none;">
+            <p>La relación entre Oliver y Venus florece, y ambos encuentran en el otro su compañero ideal.</p>
+        </div>
+        <div id="ending22" style="display: none;">
+            <p>Oliver y Venus logran superar sus diferencias y construyen un futuro prometedor juntos.</p>
+        </div>
+        <div id="ending23" style="display: none;">
+            <p>A pesar de los desafíos, Oliver y Venus encuentran la manera de hacer que su relación funcione.</p>
+        </div>
+        <div id="ending24" style="display: none;">
+            <p>Oliver y Venus se enfrentan a dificultades, pero su amor los mantiene unidos.</p>
+        </div>
+        <div id="ending25" style="display: none;">
+            <p>Venus y Oliver deciden mantener una relación abierta, lo que lleva a nuevas experiencias y desafíos.</p>
+        </div>
+        <div id="ending26" style="display: none;">
+            <p>La decisión de Venus de ser solo amigos dejó a Oliver con el corazón roto, pero ambos encontraron una manera de seguir adelante.</p>
+        </div>
+
+        <button id="restartBtn" style="display: none;" onclick="restart()">Reiniciar</button>
+    </div>
+    <div class="container">
+        <!-- Sección del carrusel -->
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="pro1.png" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="pro2.png" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="pro3.png" alt="Imagen 3">
+                </div>
+				<div class="carousel-item">
+                    <img src="pro11.jpg" alt="Imagen 11">
+                </div>
+				<div class="carousel-item">
+                    <img src="pro12.jpg" alt="Imagen 12">
+                </div>
+				<div class="carousel-item">
+                    <img src="pro13.jpg" alt="Imagen 13">
+                </div>
+				<div class="carousel-item">
+                    <img src="pro9.jpg" alt="Imagen 9">
+                </div>
+				<div class="carousel-item">
+                    <img src="pro4.jpg" alt="Imagen 4>
+                </div>
+
+            </div>
+            <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+            <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+        </div>
+		
+    <script>
+        document.getElementById('play-button').addEventListener('click', function() {
+            const audio = document.getElementById('background-music');
+            audio.play().then(() => {
+                console.log('La música está reproduciéndose.');
+            }).catch((error) => {
+                console.error('Error al reproducir la música:', error);
+            });
+        });
+    </script>
+
+    <script src="script2.js"></script>
+</body>
+</html>
